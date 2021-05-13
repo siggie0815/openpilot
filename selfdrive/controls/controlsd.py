@@ -244,7 +244,7 @@ class Controls:
       self.events.add(EventName.deviceFalling)
     if log.PandaState.FaultType.relayMalfunction in self.sm['pandaState'].faults:
       self.events.add(EventName.relayMalfunction)
-    if self.sm['longitudinalPlan'].fcw:
+    if self.sm['longitudinalPlan'].fcw or self.sm['modelV2'].meta.forwardCollisionDetected:
       self.events.add(EventName.fcw)
 
     # TODO: fix simulator
